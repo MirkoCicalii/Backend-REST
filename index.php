@@ -1,19 +1,32 @@
 
 <?php
-    $content_type = "";
-    $v = ["_embedded"];
+$metodo = $_SERVER['REQUEST_METHOD'];
 
-    if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        echo json_encode($v);
-        $content_type = "application/json";
-    } else if($_SERVER['REQUEST_METHOD'] == 'GET'){
-        echo json_encode($v);
-        $content_type = "application/json";
-    } else if($_SERVER['REQUEST_METHOD'] == 'PUT'){
-        $content_type = "application/json";
-    } else if($_SERVER['REQUEST_METHOD'] == 'DELETE'){
-        $content_type = "application/json";
-    }
+$servername = "172.17.0.1:3306";
+    $user = "root";
+    $pass = "1234";
+    $db="mydb";
+  
+    // Create connection
+    $conn = mysqli_connect($servername, $user, $pass, $db) or die("Connessione non riuscita". mysqli_connect_error());
 
-    echo $v;
-?> 
+  
+    if ($metodo == "GET"){
+    
+   echo "riccabello";
+
+  }
+    if ($metodo == "POST"){
+    
+    echo "Sì, mi è arrivata un POST!";
+  }
+    if ($metodo == "PUT"){
+    
+    echo "Sì, mi è arrivata un PUT!";
+  }
+    if ($metodo == "DELETE"){
+    
+    echo "Sì, mi è arrivata una DELETE!";
+  }
+        
+?>
